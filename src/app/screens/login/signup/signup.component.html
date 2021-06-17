@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="form">
+        <h3>Sing up</h3>
+        <form [formGroup]="form">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" name="name" placeholder="Your name">
+            <span *ngIf="">Name can be max 30 characters long.</span>
+            <br>
+            <label for="name">Last Name</label>
+            <input type="text" formControlName="lastName" name="lastName" placeholder="Your last name">
+            <label for="country">Country</label>
+            <select type="text" formControlName="country" (change)="LoadProvinces()" name="country" placeholder="Your current country">
+                <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+            </select>
+            <label for="province">Province</label>
+            <select type="text" formControlName="province" name="province" placeholder="Your current province">
+                <option *ngFor="let province of provinceList" value="{{province}}">{{province}}</option>
+            </select>
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" name="email" placeholder="Your email">
+            <label for="phone">Phone</label>
+            <input type="number" formControlName="phone" name="phone" placeholder="Your phone">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" name="password" placeholder="Your password">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" formControlName="confirmPassword" name="confirmPassword" placeholder="Your password again">
+
+            <input type="checkbox" formControlName="abeasData">
+            <label for="abeasData"><a class="item" href="http://" target="_blank" rel="noopener noreferrer">I agree to the Terms and Conditions</a></label>
+            
+
+            <button class="btn" (click)="SingUp()">Sing up</button>
+        </form>
+    </div>
+</div>
