@@ -1,6 +1,8 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-singup',
@@ -60,7 +62,7 @@ export class SignupComponent implements OnInit {
 
   provinceList: string[] = [];
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
 
@@ -73,15 +75,17 @@ export class SignupComponent implements OnInit {
       phone: new FormControl('', [Validators.required, Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
       password: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9]+$')]),
       confirmPassword: new FormControl('', [Validators.required, Validators.pattern('^[a-z0-9]+$')]),
-      abeasData: new FormControl(false, Validators.required)
+      abeasData: new FormControl(false, Validators.requiredTrue)
     });
   }
 
   SingUp(){
+    console.log('in');
     if(!this.form.invalid){
       this.loginService.SingUp(this.form.value)
-      .subscribe(token => {
-        console.log(token);
+      .subscribe(response => {
+        this.loginService.SaveToken(response.token);
+        this.router.navigate(['/list']);
       }, error => {
         console.log(error);
       });

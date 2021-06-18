@@ -1,20 +1,19 @@
 .navBar {
     display: flex;
     overflow: hidden;
-    background-color: #333;
-    justify-content: flex-end;
+    background-color: transparent;
+    justify-content: space-around;
 }
 
 .item{
-    color: #cce5ff;
+    color: #333;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
 
 .item:hover{
-    background-color: #cce5ff  ;
-    color: black;
+    color: #70cef2;
 }
 
 .btn{

@@ -26,4 +26,8 @@ export class LoginService {
   ClearToken(){
     localStorage.removeItem('token');
   }
+
+  CheckToken(){
+    return localStorage.getItem('token') ? true : false;
+  }
 }

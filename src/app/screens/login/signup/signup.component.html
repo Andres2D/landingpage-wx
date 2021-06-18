@@ -1,35 +1,58 @@
-<div class="container">
+<div class="card">
     <div class="form">
         <h3>Sing up</h3>
         <form [formGroup]="form">
             <label for="name">Name</label>
-            <input type="text" formControlName="name" name="name" placeholder="Your name">
-            <span *ngIf="">Name can be max 30 characters long.</span>
+            <input type="text" formControlName="name" name="name" placeholder="Your name" maxlength="30">
+            <span *ngIf="form.controls.name.touched && form.controls.name.errors?.required">Name is required.</span>
+            <span *ngIf="form.controls.name.touched && form.controls.name.errors?.maxLength">Name can be max 30 characters long.</span>
             <br>
             <label for="name">Last Name</label>
-            <input type="text" formControlName="lastName" name="lastName" placeholder="Your last name">
+            <input type="text" formControlName="lastName" name="lastName" placeholder="Your last name" maxlength="30">
+            <span *ngIf="form.controls.lastName.touched && form.controls.lastName.errors?.required">Last name is required.</span>
+            <span *ngIf="form.controls.lastName.touched && form.controls.lastName.errors?.maxLength">Last name can be max 30 characters long.</span>
+            <br>
             <label for="country">Country</label>
             <select type="text" formControlName="country" (change)="LoadProvinces()" name="country" placeholder="Your current country">
+                <option value="" disabled>Select</option>
                 <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
             </select>
+            <span *ngIf="form.controls.country.touched && form.controls.country.errors?.required">Country is required.</span>
+            <br>
             <label for="province">Province</label>
             <select type="text" formControlName="province" name="province" placeholder="Your current province">
+                <option value="" disabled>Select</option>
                 <option *ngFor="let province of provinceList" value="{{province}}">{{province}}</option>
             </select>
+            <span *ngIf="form.controls.province.touched && form.controls.province.errors?.required">Province is required.</span>
+            <br>
             <label for="email">Email</label>
             <input type="email" formControlName="email" name="email" placeholder="Your email">
+            <span *ngIf="form.controls.email.touched && form.controls.email.errors?.required">Email is required.</span>
+            <span *ngIf="form.controls.email.touched && form.controls.email.errors?.email">The email is not in the correct format.</span>
+            <br>
             <label for="phone">Phone</label>
-            <input type="number" formControlName="phone" name="phone" placeholder="Your phone">
+            <input type="text" formControlName="phone" pattern="\d*" name="phone" placeholder="Your phone" maxlength="10">
+            <span *ngIf="form.controls.phone.touched && form.controls.phone.errors?.required">Phone is required.</span>
+            <span *ngIf="form.controls.phone.touched && form.controls.phone.errors?.maxLength">Phone can be max 10 characters long.</span>
+            <span *ngIf="form.controls.phone.touched && form.controls.phone.errors?.pattern">The phone cannot contain letters.</span>
+            <br>
             <label for="password">Password</label>
             <input type="password" formControlName="password" name="password" placeholder="Your password">
+            <span *ngIf="form.controls.password.touched && form.controls.password.errors?.required">Password is required.</span>
+            <br>
             <label for="confirmPassword">Confirm password</label>
             <input type="password" formControlName="confirmPassword" name="confirmPassword" placeholder="Your password again">
-
+            <span *ngIf="form.controls.confirmPassword.touched && form.controls.confirmPassword.errors?.required">Password is required.</span>
+            <span *ngIf="form.controls.confirmPassword.touched && form.controls.confirmPassword.value !== form.controls.password.value">The passwords don't match.</span>
+            <br>
             <input type="checkbox" formControlName="abeasData">
             <label for="abeasData"><a class="item" href="http://" target="_blank" rel="noopener noreferrer">I agree to the Terms and Conditions</a></label>
-            
+            <br>  
+            <span *ngIf="form.controls.abeasData.touched && form.controls.abeasData.errors?.required">Confirmation is required.</span>
 
-            <button class="btn" (click)="SingUp()">Sing up</button>
+            <button class="btn" [ngClass]="{'disabled': form.invalid }" [disabled]="form.invalid" (click)="SingUp()">Sing up</button>
         </form>
     </div>
 </div>
+<br><br><br><br><br>

@@ -1,6 +1,9 @@
 <div class="navBar">
-    <img src="" alt="">
-    <a class="item" href="http://" target="_blank" rel="noopener noreferrer">Inicio</a>
-    <a class="item" href="http://" target="_blank" rel="noopener noreferrer">Beneficios</a>
-    <button class="btn" routerLink="/login/singup">Login</button>
+    <img class="item" src="../../../assets/logo_full_color.svg" alt="" height="25px;" >
+    <a *ngIf="likedTechs>0" class="item" routerLink="/list">Liked &#9829; ({{likedTechs}})</a>
+    <div clasS="item">
+        <a class="item" routerLink="/main" rel="noopener noreferrer">Inicio</a>
+        <a class="item" routerLink="/main" rel="noopener noreferrer">Beneficios</a>
+        <button *ngIf="showSignUp" class="btn" routerLink="/login/signup">Login</button>
+    </div>
 </div>

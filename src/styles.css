@@ -8,3 +8,7 @@ body{
     margin: 0;
     font-family: fontWeb;
 }
+
+html{
+    background-image: url('./assets/Backgrounds/Bg_Header.png');
+}
