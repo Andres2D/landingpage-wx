@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+strong{
+    color: #5fc8f1;
+}
