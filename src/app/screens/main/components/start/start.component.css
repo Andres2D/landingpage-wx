@@ -22,10 +22,8 @@ strong{
         flex-direction: column;
         align-items: center;
     }
-}
-
-/*
 
     img{
-        content: url('../../../../../assets/Img\ Hero/');
-    }*/
+        width: 90%;
+    }
+}

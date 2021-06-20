@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Tech } from '../../interfaces/tech.interface';
 import { ListService } from '../../screens/list/services/list.service';
+import { Router } from '@angular/router';
 
  
 @Component({
@@ -17,9 +18,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   techs: Tech[] = [];
   subscription: Subscription;
   showSignUp: boolean = true;
+  toggle: boolean = false;
   
 
-  constructor(private listService: ListService) {
+  constructor(private listService: ListService, private router: Router) {
 
     this.subscription = this.listService.GetLikedTechs()
       .subscribe(techs => {
@@ -42,7 +44,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ScrollToElement(element: string) {
-    document.getElementById(element).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    this.Toggle();
+    this.router.navigateByUrl('/main');
+    if(document.getElementById(element) !== null){
+      document.getElementById(element).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }
+  }
+
+  Toggle(){
+    this.toggle = this.toggle ? false : true;
+  }
+
+  GoToList(){
+    this.router.navigateByUrl('/list');
   }
 
   ngOnDestroy(){

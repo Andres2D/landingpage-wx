@@ -5,6 +5,7 @@
     align-items: center;
     padding-top: 60px;
     padding-bottom: 60px;
+    overflow-x: auto;
 }
 
 .table{
@@ -13,27 +14,120 @@
 }
 
 .table, td, th{
-    border: 1px solid #ddd;
     padding: 8px;
 }
 
-.table, th{
+th{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    color: black;
+    color: white;
+    background-color: #00a7e8;
 }
 
 img{
-    width: 150px;
-    height: 100px;
-}
-
-.likeTech {
-    color: red;
+    width: 100px;
+    height: auto;
 }
 
 .form{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+}
+
+.form button{
+    align-items: center;
+}
+
+input, select{
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    padding: 7px 14px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+a{
+    cursor: pointer;
+}
+
+.btn{
+    width: 100%;
+    font-family: MBold;
+    border: 2px solid #00a7e8;
+    color: #00a7e8;
+    border-radius: 3rem;
+    cursor: pointer;
+    background-color: white;
+    padding: 0.2rem 3rem;
+}
+
+.btn:hover{
+    background-color: #00a7e8;
+    color: white;
+}
+
+.likeTech {
+    background-color: #00a7e8;
+    color: white;
+}
+
+@media screen and (max-width: 900px) {
+
+    .table{
+        width: 100%
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 0;
+        left: 6px;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before { content: "Tecnología"; }
+    td:nth-of-type(2):before { content: "Año"; }
+    td:nth-of-type(3):before { content: "Autor"; }
+    td:nth-of-type(4):before { content: "Licencia"; }
+    td:nth-of-type(5):before { content: "Lenguaje"; }
+    td:nth-of-type(6):before { content: "Tipo"; }
+    td:nth-of-type(7):before { content: "Logotipo"; }
+    td:nth-of-type(8):before { content: "Favorita"; }
+}
+
+@media screen and (max-width: 900px) {
+    .form{
+        flex-direction: column;
+    }
 }

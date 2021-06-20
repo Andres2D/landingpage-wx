@@ -92,4 +92,33 @@ h3 p {
     .area{
         width: 100%;
     }
+
+    .imageText > img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .woloxer h1{
+        padding-top: 10px;
+        padding-right: 20px;
+        font-size: 100%;
+    }
+
+    .woloxer h3{
+        margin-bottom: 0px;
+    }
+
+    .woloxer{
+        top: 0px;
+    }
+
+    h3 img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .button{
+        padding: 0.5rem 2.5rem;
+    }
 }

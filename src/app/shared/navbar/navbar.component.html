@@ -1,10 +1,22 @@
-<div class="navBar">
+<nav class="navBar">
     <img class="item" src="../../../assets/logo_full_color.svg" alt="" height="25px;" >
-    <div class="item">
-        <a *ngIf="likedTechs>0" class="item" routerLink="/list">Liked &#9829; ({{likedTechs}})</a>
-        <a class="item" routerLink="/main" (click)="ScrollToElement('main')">Inicio</a>
-        <a class="item" routerLink="/main" (click)="ScrollToElement('benefits')">Beneficios</a>
-        <button *ngIf="showSignUp" class="btn" routerLink="/login/signup">Login</button>
+    <ul class="navMenu" [ngClass]="{'active': toggle}">
+        <li class="item">
+            <a (click)="ScrollToElement('main')">Inicio</a>
+        </li>
+        <li class="item">
+            <a (click)="ScrollToElement('benefits')">Beneficios</a>
+        </li>
+        <li>
+            <button *ngIf="showSignUp" class="btn" routerLink="/login/signup">Login</button>
+        </li>
+        <li class="item">
+            <a *ngIf="likedTechs>0" (click)="GoToList()">Tecnologías &#9829; ({{likedTechs}})</a>
+        </li>
+    </ul>
+    <div class="hamburger" [ngClass]="{'active': toggle}" (click)="Toggle()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
-    
-</div>
+</nav>
