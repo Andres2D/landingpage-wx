@@ -79,7 +79,7 @@ p{
 }
 
 .inputForm label {
-    font-family: MLight;
+    font-family: MLabel;
 }
 
 .select::-ms-expand {

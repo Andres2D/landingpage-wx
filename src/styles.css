@@ -9,6 +9,12 @@
     src: url('./assets/Fonts/Montserrat/Montserrat-ExtraLight.ttf');
 }
 
+
+@font-face {
+    font-family: 'MLabel';
+    src: url('./assets/Fonts/Montserrat/Montserrat-Medium.ttf');
+}
+
 body{
     margin: 0;
     font-family: MBold;
@@ -16,4 +22,5 @@ body{
 
 html{
     background-image: url('./assets/Backgrounds/Bg_Header.png');
+    background-position: top;
 }

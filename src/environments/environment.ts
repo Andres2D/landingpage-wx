@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiRoute: 'http://private-anon-45e78b711f-woloxfrontendinverview.apiary-mock.com'
+  apiRoute: 'https://private-anon-45e78b711f-woloxfrontendinverview.apiary-mock.com'
 };
 
 /*

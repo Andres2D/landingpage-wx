@@ -1,8 +1,8 @@
-import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { ListService } from '../../list/services/list.service';
 
 @Component({
   selector: 'app-singup',
@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
 
   provinceList: string[] = [];
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router , private listService: ListService) { }
 
   ngOnInit() {
 
@@ -80,24 +80,16 @@ export class SignupComponent implements OnInit {
   }
 
   SignUp(){
-    console.log('in');
     if(!this.form.invalid){
       this.loginService.SignUp(this.form.value)
       .subscribe(response => {
         this.loginService.SaveToken(response.token);
+        this.listService.SetUserLoged(true);
         this.router.navigate(['/list']);
       }, error => {
         console.log(error);
       });
     }else{
-      const invalid = [];
-        const controls = this.form.controls;
-        for (const name in controls) {
-            if (controls[name].invalid) {
-                invalid.push(name);
-            }
-        }
-        console.log(invalid);
       console.log(this.form.value);
     }
   }

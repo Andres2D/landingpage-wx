@@ -23,8 +23,8 @@ export class LoginService {
     }
   }
 
-  ClearToken(){
-    localStorage.removeItem('token');
+  Logout(){
+    localStorage.clear();
   }
 
   CheckToken(){

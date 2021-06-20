@@ -7,11 +7,14 @@
         <li class="item">
             <a (click)="ScrollToElement('benefits')">Beneficios</a>
         </li>
-        <li>
-            <button *ngIf="showSignUp" class="btn" routerLink="/login/signup">Login</button>
-        </li>
         <li class="item">
-            <a *ngIf="likedTechs>0" (click)="GoToList()">Tecnologías &#9829; ({{likedTechs}})</a>
+            <a *ngIf="!showSignUp || likedTechs>0" (click)="GoToList()">Tecnologías <strong *ngIf="likedTechs>0">&#9829; ({{likedTechs}})</strong></a>
+        </li>
+        <li>
+            <button *ngIf="showSignUp" (click)="Toggle()" class="btn" routerLink="/login/signup">Login</button>
+        </li>
+        <li>
+            <button *ngIf="!showSignUp" class="btn" (click)="Logout()" routerLink="/main">Logout</button>
         </li>
     </ul>
     <div class="hamburger" [ngClass]="{'active': toggle}" (click)="Toggle()">
