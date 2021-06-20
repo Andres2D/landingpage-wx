@@ -1,12 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-    font-family: 'fontWeb';
-    src: url('./assets/Fonts/Fira_Sans/FiraSans-Bold.ttf');
+    font-family: 'MBold';
+    src: url('./assets/Fonts/Montserrat/Montserrat-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'MLight';
+    src: url('./assets/Fonts/Montserrat/Montserrat-ExtraLight.ttf');
 }
 
 body{
     margin: 0;
-    font-family: fontWeb;
+    font-family: MBold;
 }
 
 html{

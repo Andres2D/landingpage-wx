@@ -3,6 +3,8 @@
     overflow: hidden;
     background-color: transparent;
     justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
 }
 
 .item{
@@ -13,11 +15,27 @@
 }
 
 .item:hover{
-    color: #70cef2;
+    color: #00a7e8;
 }
 
 .btn{
-    border: 2px solid #00a2a1;
-    border-radius: 30%;
-    padding: 14px 16px;
+    font-family: MBold;
+    border: 2px solid #00a7e8;
+    color: #00a7e8;
+    border-radius: 3rem;
+    cursor: pointer;
+    padding: 0.5rem 3.5rem;
+    background: transparent;
+}
+
+.btn:hover{
+    background-color: #00a7e8;
+    color: white;
+}
+
+
+@media screen and (max-width: 900px) {
+    .item a, button{
+        display: none;
+    }
 }

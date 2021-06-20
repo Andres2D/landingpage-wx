@@ -12,4 +12,8 @@ export class EndingComponent implements OnInit {
   ngOnInit() {
   }
 
+  GoToWolox(){
+    window.open("https://www.wolox.com.ar/", "_blank");
+  }
+
 }

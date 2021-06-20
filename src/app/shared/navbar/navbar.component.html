@@ -1,9 +1,10 @@
 <div class="navBar">
     <img class="item" src="../../../assets/logo_full_color.svg" alt="" height="25px;" >
-    <a *ngIf="likedTechs>0" class="item" routerLink="/list">Liked &#9829; ({{likedTechs}})</a>
-    <div clasS="item">
-        <a class="item" routerLink="/main" rel="noopener noreferrer">Inicio</a>
-        <a class="item" routerLink="/main" rel="noopener noreferrer">Beneficios</a>
+    <div class="item">
+        <a *ngIf="likedTechs>0" class="item" routerLink="/list">Liked &#9829; ({{likedTechs}})</a>
+        <a class="item" routerLink="/main" (click)="ScrollToElement('main')">Inicio</a>
+        <a class="item" routerLink="/main" (click)="ScrollToElement('benefits')">Beneficios</a>
         <button *ngIf="showSignUp" class="btn" routerLink="/login/signup">Login</button>
     </div>
+    
 </div>

@@ -13,7 +13,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  SingUp(user: User){
+  SignUp(user: User){
     return this.http.post<signUpresponse>(`${this.baseUrl}/signup`, user);
   }
 

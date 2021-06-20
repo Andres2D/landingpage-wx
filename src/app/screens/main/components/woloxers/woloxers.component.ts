@@ -12,4 +12,8 @@ export class WoloxersComponent implements OnInit {
   ngOnInit() {
   }
 
+  GoToTwitter(){
+    window.open("https://twitter.com/Wolox", "_blank");
+  }
+
 }

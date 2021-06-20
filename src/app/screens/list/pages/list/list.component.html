@@ -1,49 +1,47 @@
-
-
-<br><br><br>
-
-<form [formGroup]="form">
-    <select type="text" formControlName="type">
-        <option value="">All</option>
-        <option value="Front-End">Front-End</option>
-        <option value="Back-End">Back-End</option>
-        <option value="Mobile">Mobile</option>
-    </select>
-    <label for="name">Name</label>
-    <input type="text" formControlName="name" name="name" placeholder="Tech">
-</form>
-
-<table class="table" id="techs">
-    <tr>
-        <th>Tech
-            <button (click)="OrderList()">&#8593; &#8595;</button>
-        </th>
-        <th>Year</th>
-        <th>Author</th>
-        <th>License</th>
-        <th>Language</th>
-        <th>Type</th>
-        <th>Logo</th>
-        <th>Like</th>
-    </tr>
-    <ng-container *ngIf="techList | filter: form.value.type:form.value.name as result">
-        <tr *ngFor="let tech of result">
-            <td>{{tech.tech}}</td>
-            <td>{{tech.year}}</td>
-            <td>{{tech.author}}</td>
-            <td>{{tech.license}}</td>
-            <td>{{tech.language}}</td>
-            <td>{{tech.type}}</td>
-            <td>
-                <img [src]="tech.logo" alt="">
-            </td>
-            <td>
-                <button (click)="LikeUnlikeTech(tech)" [ngClass]="{'likeTech': CheckLike(tech)}">Like &#9829;</button>
-            </td>
+<div class="container">
+    <form class="form" [formGroup]="form">
+        <label for="">Tecnología</label>
+        <select type="text" formControlName="type">
+            <option value="">All</option>
+            <option value="Front-End">Front-End</option>
+            <option value="Back-End">Back-End</option>
+            <option value="Mobile">Mobile</option>
+        </select>
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" name="name" placeholder="Tech">
+    </form>
+    
+    <table class="table" id="techs">
+        <tr>
+            <th>Tech
+                <button (click)="OrderList()">&#8593; &#8595;</button>
+            </th>
+            <th>Year</th>
+            <th>Author</th>
+            <th>License</th>
+            <th>Language</th>
+            <th>Type</th>
+            <th>Logo</th>
+            <th>Like</th>
         </tr>
-        <h4>
-            <strong style="margin-right: 10px;">Total Items:</strong>{{result?.length}}
-        </h4>
-    </ng-container>
-</table>
-<br><br><br><br><br>
+        <ng-container *ngIf="techList | filter: form.value.type:form.value.name as result">
+            <tr *ngFor="let tech of result">
+                <td>{{tech.tech}}</td>
+                <td>{{tech.year}}</td>
+                <td>{{tech.author}}</td>
+                <td>{{tech.license}}</td>
+                <td>{{tech.language}}</td>
+                <td>{{tech.type}}</td>
+                <td>
+                    <img [src]="tech.logo" alt="">
+                </td>
+                <td>
+                    <button (click)="LikeUnlikeTech(tech)" [ngClass]="{'likeTech': CheckLike(tech)}">Like &#9829;</button>
+                </td>
+            </tr>
+            <h4>
+                <strong style="margin-right: 10px;">Total Items:</strong>{{result?.length}}
+            </h4>
+        </ng-container>
+    </table>
+</div>

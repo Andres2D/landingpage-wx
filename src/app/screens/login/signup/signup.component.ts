@@ -79,10 +79,10 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  SingUp(){
+  SignUp(){
     console.log('in');
     if(!this.form.invalid){
-      this.loginService.SingUp(this.form.value)
+      this.loginService.SignUp(this.form.value)
       .subscribe(response => {
         this.loginService.SaveToken(response.token);
         this.router.navigate(['/list']);

@@ -1,10 +1,35 @@
 .container{
+    padding-top: 60px;
+    padding-bottom: 160px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
 }
 
+h2{
+    font-family: MLight;
+    margin-top: 0;
+}
+
 strong{
-    color: #5fc8f1;
+    color: #00a7e8;
+}
+
+.btn{
+    margin-top: 20px;
+    top: 310px;
+    left: 40%;
+    font-family: MBold;
+    border: 2px solid #00a7e8;
+    color: white;
+    border-radius: 3rem;
+    cursor: pointer;
+    padding: 0.8rem 4.5rem;
+    background-color: #00a7e8;
+}
+
+.btn:hover{
+    background-color: white;
+    color: #00a7e8;
 }
