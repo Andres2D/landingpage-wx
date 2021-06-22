@@ -27,7 +27,7 @@ export class BenefitsComponent implements OnInit {
     },
     {
       title: 'Semana remota',
-      imgSrc: '../../../../../assets/Ic_HomeOffice.svg'
+      imgSrc: '../../../../../assets/Ic_laptop.svg'
     },
     {
       title: 'Trabajar en últimas tecnologías',

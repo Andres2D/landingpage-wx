@@ -43,7 +43,6 @@ describe('ListComponent', () => {
   let fixture: ComponentFixture<ListComponent>;
   let mockList = mockTechList;
   let service: ListService;
-  
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -91,7 +90,6 @@ describe('ListComponent', () => {
     spyOn(service, 'GetTechs').and.returnValue(of(mockList))
     component.GetTechs();
     fixture.detectChanges();
-    console.log(component.techList);
     expect(component.techList).toEqual(mockList);
   }));
 });
