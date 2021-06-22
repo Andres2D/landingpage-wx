@@ -73,11 +73,6 @@ a{
     padding: 0.2rem 3rem;
 }
 
-.btn:hover{
-    background-color: #00a7e8;
-    color: white;
-}
-
 .likeTech {
     background-color: #00a7e8;
     color: white;
@@ -99,21 +94,33 @@ a{
         left: -9999px;
     }
 
+    input, select{
+        margin-left: 0;
+    }
+
+    tr td {
+        top: 5px;
+    }
+
+    tr{
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.25), 2px 2px 2px rgba(0,0,0,0.22);
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
     td {
-        /* Behave  like a "row" */
         border: none;
         position: relative;
         padding-left: 50%;
     }
 
     td:before {
-        /* Now like a table header */
         position: absolute;
-        /* Top/left values mimic padding */
         top: 0;
         left: 6px;
         padding-right: 10px;
         white-space: nowrap;
+        
     }
 
     td:nth-of-type(1):before { content: "Tecnología"; }

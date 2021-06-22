@@ -5,7 +5,6 @@ import { ListComponent } from './list.component';
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListComponent ]
@@ -22,4 +21,5 @@ describe('ListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

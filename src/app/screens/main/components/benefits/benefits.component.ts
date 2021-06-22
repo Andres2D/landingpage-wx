@@ -10,7 +10,7 @@ export class BenefitsComponent implements OnInit {
 
   cards: Card[] = [
     {
-      title: 'Flexibilidad horaria',
+      title: 'Flexibilidad \n horaria',
       imgSrc: '../../../../../assets/Ic_Hour.svg'
     },
     {

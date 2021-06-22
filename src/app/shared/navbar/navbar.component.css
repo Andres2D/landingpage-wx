@@ -71,12 +71,15 @@ a{
     .navMenu{
         position: absolute;
         top: 45px;
+        width: 100%;
         flex-direction: column;
         background-color: white;
-        width: 100%;
         text-align: center;
         transition: 0.5s;
         display: none;
+        padding-left: 0;
+        padding-bottom: 10px;
+        box-shadow: 1px 5px 5px rgba(0,0,0,0.25), 8px 2px 2px rgba(0,0,0,0.22);
     }
 
     .hamburger {

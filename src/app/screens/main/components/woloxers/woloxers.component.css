@@ -101,8 +101,8 @@ h3 p {
 @media screen and (max-width: 600px) {
     .woloxer h1{
         padding-top: 10px;
-        padding-right: 20px;
-        font-size: 100%;
+        padding-right: 2px;
+        font-size: 120%;
     }
 
     .woloxer h3{

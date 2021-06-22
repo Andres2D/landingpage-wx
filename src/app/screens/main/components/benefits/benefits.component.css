@@ -35,6 +35,8 @@ strong{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 10%;
+    align-content: center;
 }
 
 @media screen and (max-width: 1200px) {
