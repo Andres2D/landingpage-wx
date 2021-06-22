@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListService } from '../../services/list.service';
 import { Tech } from '../../../../interfaces/tech.interface';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -9,22 +10,21 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./list.component.css']
 })
 
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
   techList: Tech[] = [];
   likedTech: Tech[] = [];
 
   form: FormGroup = new FormGroup({});
   sortAscending: boolean = false;
+  private sub: Subscription;
 
   constructor(private listService: ListService) { }
 
   ngOnInit() {
     window.scrollTo(0,0);
-    this.listService.GetTechs()
-    .subscribe(response => {
-      this.techList = response;
-    });
+
+    this.GetTechs();
 
     this.form = new FormGroup({
       name: new FormControl(''),
@@ -34,6 +34,13 @@ export class ListComponent implements OnInit {
     if(localStorage.getItem('likedTechs')){
       this.likedTech = JSON.parse(localStorage.getItem('likedTechs'));
     }
+  }
+
+  GetTechs(){
+    this.sub = this.listService.GetTechs()
+    .subscribe(response => {
+      this.techList = response;
+    });
   }
 
   OrderList(){
@@ -72,5 +79,11 @@ export class ListComponent implements OnInit {
     });
 
     return index;
+  }
+
+  ngOnDestroy(){
+    if(this.sub){
+      this.sub.unsubscribe();
+    }
   }
 }
