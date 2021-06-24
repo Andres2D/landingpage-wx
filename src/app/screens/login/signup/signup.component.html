@@ -64,7 +64,7 @@
             
             <div class="inputForm">
                 <input type="checkbox" formControlName="abeasData">
-                <label for="abeasData"><a class="item" href="http://" target="_blank" rel="noopener noreferrer"><strong style="color: #00a7e8">Acepto Términos y Condiciones</strong></a></label>
+                <label for="abeasData"><a class="item" routerLink="/login/abeasdata" target="_blank" rel="noopener noreferrer"><strong style="color: #00a7e8">Acepto Términos y Condiciones</strong></a></label>
                 <p *ngIf="form.controls.abeasData.touched && form.controls.abeasData.errors?.required">Se requiere la confirmación.</p>
             </div>
             
